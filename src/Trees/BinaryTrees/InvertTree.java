@@ -12,8 +12,8 @@ public class InvertTree {
         if (root == null){
             return null;
         }
-        TreeNode left = invertBTree(root.right);
-        TreeNode right = invertBTree(root.left);
+        TreeNode left = invertBTree(root.left);
+        TreeNode right = invertBTree(root.right);
 
         root.left = right;
         root.right = left;
@@ -30,11 +30,13 @@ public class InvertTree {
     }
     public static void main(String[] args) {
         InvertTree it = new InvertTree();
-        it.root = new TreeNode(1);
+        it.root = new TreeNode(4);
         it.root.left = new TreeNode(2);
-        it.root.right = new TreeNode(5);
-        it.root.left.left = new TreeNode(3);
-        it.root.left.right = new TreeNode(4);
+        it.root.right = new TreeNode(7);
+        it.root.left.left = new TreeNode(1);
+        it.root.left.right = new TreeNode(3);
+        it.root.right.left = new TreeNode(6);
+        it.root.right.right = new TreeNode(9);
         preorder(it.root);
         System.out.println();
         TreeNode ans = invertBTree(it.root);
